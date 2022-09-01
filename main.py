@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -15,8 +15,8 @@ class Worker():
     name: str
     salary: int
 
-    def __post_init__(self):
-        self.__dict__ = Worker.__extra_attributes
+    # def __post_init__(self):
+    #     self.__dict__ = Worker.__extra_attributes
 
 
 class Manager(Worker):
