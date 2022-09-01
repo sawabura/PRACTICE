@@ -32,3 +32,5 @@ class Secretary(Worker):
 w1 = Worker.create_worker("VVV", 30000)
 
 m1 = Manager.create_worker("VVsadasV", 30000)
+m2 = Manager.create_worker("VVsadasV", 30000)
+m3 = Manager.create_worker("VVsadasV", 30000)
