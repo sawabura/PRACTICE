@@ -3,7 +3,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Worker():
-    insurance = True
+    __extra_attributes = {
+        "insurance": True,
+        "wages_bonus_percent": 20,
+    }
 
     @classmethod
     def create_worker(cls, name, salary):
@@ -12,20 +15,20 @@ class Worker():
     name: str
     salary: int
 
+    def __post_init__(self):
+        self.__dict__ = Worker.__extra_attributes
+
 
 class Manager(Worker):
-    __extra_attributes = {}
 
-    def __init__(self, name, salary):
-        self.name = name
-        self.salary = salary
-        self.__dict__ = Manager.__extra_attributes
+    def grow_salary(self):
+        pass
 
 
 class Secretary(Worker):
     pass
 
 
-m1 = Worker.create_worker("VVV", 30000)
+w1 = Worker.create_worker("VVV", 30000)
 
-m2 = Manager.create_worker("VVsadasV", 30000)
+m1 = Manager.create_worker("VVsadasV", 30000)
